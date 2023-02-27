@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+  rel="stylesheet"
+/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Brand -->
+  <a id="two" class="navbar-brand me-2" href="#" > BlueTree Employee Management System </a>
+  <style>
+  #two{
+  position:relative;
+  left:380px;
+  font-size: 35px;
+  font-family: georgia;
+  color:blue ; 
+  
+  }
+  </style>
+   
+    <a id="nine" class="navbar-brand" href="#">
+      <img
+        src="data:image/png;base64,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"
+        class="me-2"
+        height="70"
+        alt="MDB Logo"
+        loading="lazy"
+      />
+      <style>
+      #nine{
+       position: relative;
+        right:620px;
+      }
+      </style>
+ 
+  
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+    </ul>
+  </div>
+</nav>
+
+	
+		
+		<div class = "row">
+			<div class = "col-lg-3">
+				<a  id="one" th:href = "@{/employees/new}" class = "btn btn-primary btn-sm mb-3" > Add Employee Data</a>
+				<style>
+				#one{
+				position: relative;
+				down:5px;
+				top:450px;
+				right: 20px;
+				left:20px;
+				
+				}
+				</style>
+			</div>
+		</div>
+		<table id = three  class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+					<th> Employee ID </th>
+					<th> Name</th>
+					<th > Email</th>
+					<th> Date of Birth </th>
+					<th> Age </th>
+					<th> Salary </th>
+					<th> Status </th>
+					<th> Actions </th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "employee: ${employees}">
+					<td th:text = "${employee.id}"></td>
+					<td th:text = "${employee.employeename}"></td>
+					<td th:text = "${employee.email}"></td>
+					<td th:text = "${employee.dateofbirth}"></td>
+					<td th:text = "${employee.age}"></td>
+					<td th:text = "${employee.salary}"></td>
+					<td th:text = "${employee.status} ? 'Active' : 'Inactive'"></td>
+					
+					
+					<td>
+						<a th:href = "@{/employees/edit/{id}(id=${employee.id})}"
+						 class = "btn btn-outline-success">Update</a>
+						
+						<a th:href = "@{/employees/{id}(id=${employee.id})}"
+						 class = "btn btn-outline-danger">Delete</a>
+						 
+					</td>
+				</tr>
+				<style>
+				#three{
+				position: relative;
+				down : 500px;
+				}
+				</style>
+			</tbody>	
+		</table>	
+	</div>
+</body>
+</html>
