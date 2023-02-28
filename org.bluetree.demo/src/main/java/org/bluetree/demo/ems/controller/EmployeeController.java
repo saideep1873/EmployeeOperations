@@ -26,7 +26,7 @@ public class EmployeeController {
 		this.employeeService = employeeService;
 	}
 
-	// handler method to handle list students and return mode and view
+	
 
 	@GetMapping("/employees")
 	public String listEmployees(Model model) {
@@ -37,7 +37,7 @@ public class EmployeeController {
 	@GetMapping("/employees/new")
 	public String createEmployeeForm(Model model) {
 
-		// create student object to hold student form data
+		
 		Employee employee = new Employee();
 		model.addAttribute("employee", employee);
 		return "employeecreation";
@@ -59,7 +59,7 @@ public class EmployeeController {
 	@PostMapping("/employees/{id}")
 	public String updateEmployee(@PathVariable Long id, @ModelAttribute("employee") Employee employee, Model model) {
 
-		// get student from database by id
+		
 		Employee existingEmployee = employeeService.getEmployeeById(id);
 		existingEmployee.setId(id);
 		existingEmployee.setEmployeename(employee.getEmployeename());
@@ -69,12 +69,12 @@ public class EmployeeController {
 		existingEmployee.setSalary(employee.getSalary());
 		existingEmployee.setStatus(employee.getStatus());
 
-		// save updated student object
+		
 		employeeService.updateEmployee(existingEmployee);
 		return "redirect:/employees";
 	}
 
-	// handler method to handle delete student request
+	
 
 	@GetMapping("/employees/{id}")
 	public String deleteEmployees(@PathVariable Long id) {
