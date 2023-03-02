@@ -8,10 +8,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.javaguides</groupId>
-	<artifactId>student-management-system</artifactId>
+	<artifactId>employee-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>student-management-system</name>
-	<description>Student Management System using Spring Boot and Thymeleaf</description>
+	<name>employee-management-system</name>
+	<description>Employee Management System using Spring Boot and Thymeleaf</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
